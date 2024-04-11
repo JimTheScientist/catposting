@@ -1,0 +1,51 @@
+
+{% extends "page_base.html" %}
+{% block content %}
+<style>
+    .catpost {
+        position: relative;
+        left: 120px;
+        top: 20px;
+        width: 400px;
+        min-height: 200px;
+        background: aquamarine;
+        border-radius: 15px;
+        padding: 5px 10px 5px;
+        margin: 5px 10px 5px;
+    }
+    .like-button img {
+        position: absolute;
+        left: 385px;
+        top: 45px;
+    }
+
+    .post-button {
+        background: blueviolet;
+        border-radius: 15px;
+        width: 100px;
+        padding-left: 10px;
+        position: fixed;
+        left: 5px;
+        top: 95px;
+    }
+    .post-button a {
+        text-decoration: none;
+        color: aliceblue;
+    }
+</style>
+
+<div class="post-button">
+    <a href="/posts/post">+ New Post</a>
+</div>
+
+{% for post in posts %}
+<div class="catpost">
+    <h1 style="margin-top: 0; margin-bottom: 0;">{{post.title}}</h1>
+    <img src="/media/{{post.filename}}" width="370px">
+    <a class="like-button">
+        {% load static %}
+        <img src="{% static 'heart_empty_export.svg' %}" alt="Like Button" height="30px">
+    </a>
+</div>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,30 @@
+
+{% extends "page_base.html" %}
+{% block content %}
+<style>
+    .catpost {
+        position: relative;
+        width: 400px;
+        height: 200px;
+        background: gray;
+        border-radius: 15px;
+        padding: 5px 10px 5px;
+        margin: 5px 10px 5px;
+    }
+    .like-button img {
+        position: absolute;
+        left: 370px;
+        top: 170px;
+    }
+</style>
+<div class="catpost">
+    <form action="/posts/post_submit" method="post" enctype="multipart/form-data">
+        <label for="title">Post Title:</label>
+        <input type="text" id="title" name="title">
+        <label for="image">Image:</label>
+        <input type="file" id="image" name="image">
+        <input type="submit" value="Submit">
+        {%csrf_token%}
+    </form>
+</div>
+{% endblock %}

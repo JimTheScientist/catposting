@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cat Posting</title>
+    <style>
+        body {
+            font-family: Tahoma,serif;
+        }
+    </style>
+</head>
+<body>
+<style>
+    .titlebar {
+        position: fixed;
+        padding-left: 10px;
+        height: 70px;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        display: inline-flex;
+        background: lightpink;
+    }
+    .titlebar-img {
+        margin-top: auto;
+        margin-bottom: auto;
+        margin-right: 15px;
+    }
+</style>
+<div class="titlebar">
+    <a href="/posts/" class="titlebar-img">
+    {% load static %}
+    <img src="{% static 'cat_export.svg' %}" alt="Cat Posting" height="50px">
+    </a>
+    <h1>Cat Posting</h1>
+</div>
+<style>
+    .content-area {
+        min-height:100%;
+        width: 100vw;
+        position: fixed;
+        top: 70px;
+        height: calc(100% - 70px);
+        overflow-y: auto;
+        left: 0;
+    }
+</style>
+<div class="content-area">
+    {% block content %}
+
+    {% endblock %}
+</div>
+</body>
+</html>
